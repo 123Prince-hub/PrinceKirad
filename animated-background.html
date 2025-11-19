@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Portfolio Background</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0f;
+            overflow: hidden;
+            font-family: 'Courier New', monospace;
+        }
+
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Grid Background */
+        .grid-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, rgba(99, 102, 241, 0.3) 2px, transparent 2px);
+            background-size: 50px 50px;
+        }
+
+        /* Floating Shapes */
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(30px);
+            opacity: 0.8;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            top: 60%;
+            left: 70%;
+            animation-delay: 4s;
+        }
+
+        .shape:nth-child(3) {
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(135deg, #ec4899, #6366f1);
+            top: 40%;
+            left: 40%;
+            animation-delay: 8s;
+        }
+
+        .shape:nth-child(4) {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            top: 80%;
+            left: 20%;
+            animation-delay: 12s;
+        }
+
+        .shape:nth-child(5) {
+            width: 280px;
+            height: 280px;
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            top: 20%;
+            left: 80%;
+            animation-delay: 16s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(50px, -50px) scale(1.1);
+            }
+            50% {
+                transform: translate(-30px, 30px) scale(0.9);
+            }
+            75% {
+                transform: translate(40px, 60px) scale(1.05);
+            }
+        }
+
+        /* Particles.js Container */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Floating Neon Particles */
+        .neon-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 80px;
+            overflow: hidden;
+        }
+
+        .neon-particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            animation: floatParticle linear infinite;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(var(--drift));
+                opacity: 0;
+            }
+        }
+
+        /* Code Rain */
+        .code-rain {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .code-column {
+            position: absolute;
+            top: -100%;
+            font-size: 22px;
+            font-weight: bold;
+            color: #8b9eff;
+            opacity: 1;
+            white-space: pre;
+            animation: fall linear infinite;
+            text-shadow: 0 0 20px #6366f1, 0 0 30px #6366f1;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(calc(100vh + 100%));
+            }
+        }
+
+        /* Binary Rain */
+        .binary-rain {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .binary-column {
+            position: absolute;
+            top: -100%;
+            font-size: 24px;
+            font-weight: bold;
+            color: #a78bfa;
+            opacity: 1;
+            animation: binaryFall linear infinite;
+            text-shadow: 0 0 20px #8b5cf6, 0 0 30px #8b5cf6;
+        }
+
+        @keyframes binaryFall {
+            to {
+                transform: translateY(calc(100vh + 100%));
+                opacity: 0.4;
+            }
+        }
+
+        /* Circuit Lines */
+        .circuit-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .circuit-line {
+            position: absolute;
+            background: linear-gradient(90deg, rgba(236, 72, 153, 0.3), #ec4899, rgba(236, 72, 153, 0.3));
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        .circuit-line.horizontal {
+            height: 3px;
+            width: 100%;
+        }
+
+        .circuit-line.vertical {
+            width: 3px;
+            height: 100%;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.7;
+                box-shadow: 0 0 20px #ec4899, 0 0 40px #ec4899;
+            }
+            50% {
+                opacity: 1;
+                box-shadow: 0 0 40px #ec4899, 0 0 60px #ec4899;
+            }
+        }
+
+        /* Content Area */
+        .content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            text-align: center;
+        }
+
+        .content h1 {
+            font-size: 4rem;
+            font-family: 'Arial', sans-serif;
+            text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <!-- Grid Background -->
+        <div class="grid-background"></div>
+
+        <!-- Floating Shapes -->
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+
+        <!-- Particles.js -->
+        <div id="particles-js"></div>
+
+        <!-- Floating Neon Particles -->
+        <div class="neon-particles" id="neonParticles"></div>
+
+        <!-- Code Rain -->
+        <div class="code-rain" id="codeRain"></div>
+
+        <!-- Binary Rain -->
+        <div class="binary-rain" id="binaryRain"></div>
+
+        <!-- Circuit Lines -->
+        <div class="circuit-lines" id="circuitLines"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <h1>Your Portfolio</h1>
+    </div>
+
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+        // Particles.js Configuration
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 150, density: { enable: true, value_area: 800 } },
+                color: { value: '#8b9eff' },
+                shape: { type: 'circle' },
+                opacity: { value: 1, random: false },
+                size: { value: 5, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#a78bfa',
+                    opacity: 0.9,
+                    width: 2
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'grab' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                },
+                modes: {
+                    grab: { distance: 140, line_linked: { opacity: 1 } },
+                    push: { particles_nb: 4 }
+                }
+            },
+            retina_detect: true
+        });
+
+        // Code Rain Effect
+        const codeChars = ['{', '}', '[', ']', '(', ')', '<', '>', ';', ':', '=', '+', '-', '*', '/', '&', '|', '?'];
+        const codeRainContainer = document.getElementById('codeRain');
+
+        function createCodeColumn() {
+            const column = document.createElement('div');
+            column.className = 'code-column';
+            column.style.left = Math.random() * 100 + '%';
+            column.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            column.style.animationDelay = Math.random() * 5 + 's';
+            
+            let text = '';
+            for (let i = 0; i < 20; i++) {
+                text += codeChars[Math.floor(Math.random() * codeChars.length)] + '\n';
+            }
+            column.textContent = text;
+            
+            codeRainContainer.appendChild(column);
+            
+            setTimeout(() => column.remove(), parseFloat(column.style.animationDuration) * 1000 + 5000);
+        }
+
+        for (let i = 0; i < 35; i++) {
+            setTimeout(() => createCodeColumn(), i * 600);
+        }
+        setInterval(createCodeColumn, 1200);
+
+        // Binary Rain Effect
+        const binaryRainContainer = document.getElementById('binaryRain');
+
+        function createBinaryColumn() {
+            const column = document.createElement('div');
+            column.className = 'binary-column';
+            column.style.left = Math.random() * 100 + '%';
+            column.style.animationDuration = (Math.random() * 8 + 8) + 's';
+            column.style.animationDelay = Math.random() * 3 + 's';
+            
+            let text = '';
+            for (let i = 0; i < 30; i++) {
+                text += Math.random() > 0.5 ? '1' : '0';
+                if (i % 5 === 4) text += '\n';
+            }
+            column.textContent = text;
+            
+            binaryRainContainer.appendChild(column);
+            
+            setTimeout(() => column.remove(), parseFloat(column.style.animationDuration) * 1000 + 3000);
+        }
+
+        for (let i = 0; i < 40; i++) {
+            setTimeout(() => createBinaryColumn(), i * 500);
+        }
+        setInterval(createBinaryColumn, 800);
+
+        // Circuit Lines
+        const circuitLinesContainer = document.getElementById('circuitLines');
+
+        function createCircuitLine() {
+            const line = document.createElement('div');
+            line.className = 'circuit-line';
+            
+            if (Math.random() > 0.5) {
+                line.classList.add('horizontal');
+                line.style.top = Math.random() * 100 + '%';
+            } else {
+                line.classList.add('vertical');
+                line.style.left = Math.random() * 100 + '%';
+            }
+            
+            line.style.animationDelay = Math.random() * 3 + 's';
+            line.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            
+            circuitLinesContainer.appendChild(line);
+        }
+
+        for (let i = 0; i < 16; i++) {
+            createCircuitLine();
+        }
+
+        // Floating Neon Particles
+        const neonColors = ['#66ffff', '#66ffaa', '#aaff66', '#ffff66', '#ff66ff', '#ff66aa', '#66ffcc', '#ccffff', '#aaffaa', '#ffffaa'];
+        const neonParticlesContainer = document.getElementById('neonParticles');
+
+        function createNeonParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'neon-particle';
+            
+            const color = neonColors[Math.floor(Math.random() * neonColors.length)];
+            particle.style.background = color;
+            particle.style.boxShadow = `0 0 15px ${color}, 0 0 25px ${color}`;
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.bottom = '0';
+            particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            particle.style.setProperty('--drift', (Math.random() * 200 - 100) + 'px');
+            
+            neonParticlesContainer.appendChild(particle);
+            
+            setTimeout(() => particle.remove(), parseFloat(particle.style.animationDuration) * 1000 + 5000);
+        }
+
+        for (let i = 0; i < 80; i++) {
+            setTimeout(() => createNeonParticle(), i * 200);
+        }
+        setInterval(createNeonParticle, 500);
+    </script>
+</body>
+</html>

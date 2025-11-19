@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prince - Portfolio</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="dark">
+    
+    <!-- Loading Animation -->
+    <div id="loader">
+        <div class="code-loader">
+            <div class="terminal-header">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+                <span class="terminal-title">portfolio.py</span>
+            </div>
+            <div class="code-content">
+                <pre id="typingCode"></pre>
+                <span class="cursor">|</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <span class="brand-icon">👨‍💻</span>
+                <span class="brand-text">Prince</span>
+            </a>
+            <div class="nav-right">
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <ul class="navbar-nav">
+                    <li class="nav-item nav-profile-item">
+                        <div>
+                            <img src="assets/images/profile.jpg" alt="Prince" class="nav-profile-img">
+                            <p class="nav-profile-name">Full Stack GenAI Engineer</p>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about"><i class="fas fa-user"></i> About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills"><i class="fas fa-code"></i> Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        <div class="floating-shape shape-4"></div>
+        <div class="floating-shape shape-5"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div id="particles-js"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-1 order-2">
+                    <div class="hero-content">
+                        <!-- <div class="availability-badge">
+                            <span class="status-dot"></span>
+                            Available for Freelance & Full-Time
+                        </div> -->
+                        <h1 class="hero-title">Hi, I'm <span class="gradient-text">Prince Kirad</span></h1>
+                        <h2 class="hero-subtitle">Full Stack GenAI Engineer</h2>
+                        <p class="hero-description">Building intelligent applications with cutting-edge AI technologies. Specializing in Python, generative AI, and full-stack development to create innovative solutions that solve real-world problems.</p>
+                        <div class="hero-buttons">
+                            <a href="#contact" class="btn btn-primary">
+                                <i class="fas fa-briefcase"></i> Full-Time Opportunity
+                            </a>
+                            <a href="#contact" class="btn btn-freelance">
+                                <i class="fas fa-laptop-code"></i> Freelance Project
+                            </a>
+                            <a href="https://drive.google.com/file/d/19J5tDOoCTcoqdTnwsv4U86LCqeZdqrYo/view?usp=sharing" download target="_blank" class="btn btn-outline">
+                                <i class="fas fa-download"></i> Download CV
+                            </a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/princekirad/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/123Prince-hub" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="mailto:princekirad11@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-2 order-1">
+                    <div class="hero-image">
+                        <div class="image-wrapper">
+                            <img src="assets/images/profile.jpg" alt="Prince Profile" class="profile-img">
+                            <div class="image-glow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div id="aboutParticles"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Get to know me better</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="about-content glass-card">
+                        <p>I'm Prince Kirad, a passionate Full Stack GenAI Engineer specializing in building intelligent, scalable web applications. With expertise spanning modern frontend frameworks, robust backend systems, and cutting-edge AI technologies, I create innovative solutions that bridge the gap between traditional development and artificial intelligence.</p>
+                        <p>My technical journey encompasses full-stack development with the MERN stack, Python-based AI/ML implementations, and cloud infrastructure management. I thrive on transforming complex problems into elegant, user-centric solutions. Whether it's developing responsive web applications, integrating generative AI capabilities, or architecting scalable backend systems, I bring a blend of technical expertise and creative problem-solving to every project.</p>
+                        <p>Currently seeking full-time opportunities and freelance projects where I can leverage my skills in web development, AI integration, and modern DevOps practices to create impactful digital experiences. I'm committed to continuous learning and staying at the forefront of emerging technologies.</p>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <h3 class="stat-number">3+</h3>
+                                <p class="stat-label">Years Experience</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3 class="stat-number">20+</h3>
+                                <p class="stat-label">Projects Completed</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3 class="stat-number">10+</h3>
+                                <p class="stat-label">Happy Clients</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="circuit-bg" id="circuitBg"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <p class="section-subtitle">Technologies I work with</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="skill-category glass-card">
+                        <h3><i class="fas fa-brain"></i> AI & Machine Learning</h3>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Python & AI Libraries</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Web Scraping & Data Extraction</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>LangChain & LLMs</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>OpenAI & GPT APIs</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="skill-category glass-card">
+                        <h3><i class="fas fa-code"></i> Frontend Development</h3>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>React.js & Next.js</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>JavaScript & TypeScript</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>HTML5 & CSS3</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Tailwind & Bootstrap</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="skill-category glass-card">
+                        <h3><i class="fas fa-server"></i> Backend Development</h3>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Django & FastAPI</span>
+                                <span>87%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 87%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>MongoDB & Mongoose</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>REST APIs & GraphQL</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>PostgreSQL & MySQL</span>
+                                <span>82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="skill-category glass-card">
+                        <h3><i class="fas fa-cloud"></i> DevOps & Automation</h3>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Android Automation (Appium)</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>AWS (EC2, S3, Lambda)</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Docker & Containerization</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Git & GitHub</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="skill-category glass-card">
+                        <h3><i class="fas fa-tools"></i> Tools & Frameworks</h3>
+                        <div class="swiper toolsSwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><div class="tech-icon"><i class="fab fa-python"></i><span>Python</span></div></div>
+                                <div class="swiper-slide"><div class="tech-icon"><i class="fab fa-react"></i><span>React</span></div></div>
+                                <div class="swiper-slide"><div class="tech-icon"><i class="fas fa-spider"></i><span>Selenium</span></div></div>
+                                <div class="swiper-slide"><div class="tech-icon"><i class="fas fa-database"></i><span>MongoDB</span></div></div>
+                                <div class="swiper-slide"><div class="tech-icon"><i class="fab fa-docker"></i><span>Docker</span></div></div>
+                                <div class="swiper-slide"><div class="tech-icon"><i class="fab fa-aws"></i><span>AWS</span></div></div>
+                                <div class="swiper-slide"><div class="tech-icon"><i class="fab fa-git-alt"></i><span>Git</span></div></div>
+                                <div class="swiper-slide"><div class="tech-icon"><i class="fas fa-mobile-alt"></i><span>Appium</span></div></div>
+                                <div class="swiper-slide"><div class="tech-icon"><i class="fas fa-brain"></i><span>LangChain</span></div></div>
+                                <div class="swiper-slide"><div class="tech-icon"><i class="fas fa-robot"></i><span>OpenAI</span></div></div>
+                                <div class="swiper-slide"><div class="tech-icon"><i class="fab fa-linux"></i><span>Linux</span></div></div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="code-rain" id="codeRain"></div>
+        <div class="wave-lines" id="waveLines"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Services</h2>
+                <p class="section-subtitle">What I offer</p>
+            </div>
+            <div class="swiper servicesSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="service-card glass-card">
+                            <div class="service-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3>GenAI Integration</h3>
+                            <p>Implementing cutting-edge generative AI solutions using LLMs, ChatGPT API, and custom AI models for intelligent applications.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="service-card glass-card">
+                            <div class="service-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h3>Full Stack Development</h3>
+                            <p>Building end-to-end web applications with MERN stack (MongoDB, Express, React, Node.js) and modern frameworks.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="service-card glass-card">
+                            <div class="service-icon">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <h3>Python Development</h3>
+                            <p>Developing AI/ML applications, web scraping solutions, data processing pipelines, and automation scripts using Python and its ecosystem.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="service-card glass-card">
+                            <div class="service-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <h3>Backend & API Development</h3>
+                            <p>Creating robust RESTful APIs and scalable backend systems with Node.js, Express, and database optimization.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="service-card glass-card">
+                            <div class="service-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h3>Cloud & DevOps</h3>
+                            <p>Deploying and managing applications on AWS, implementing CI/CD pipelines, and containerization with Docker.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="service-card glass-card">
+                            <div class="service-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h3>Automation & Testing</h3>
+                            <p>Building intelligent chatbots, Android automation with Appium, mobile app scraping, and workflow automation solutions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="grid-bg"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Some of my recent work</p>
+            </div>
+            <div class="swiper projectsSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="project-card glass-card">
+                            <div class="project-image">
+                                <img src="assets/projects/project1.jpg" alt="AI Chatbot Platform">
+                                <div class="project-overlay">
+                                    <a href="https://github.com/123Prince-hub" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3>AI Chatbot Platform</h3>
+                                <p>Intelligent chatbot system powered by GPT models with context-aware responses and multi-language support.</p>
+                                <div class="project-tech">
+                                    <span>Python</span>
+                                    <span>OpenAI</span>
+                                    <span>FastAPI</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="project-card glass-card">
+                            <div class="project-image">
+                                <img src="assets/projects/project2.jpg" alt="E-Commerce MERN App">
+                                <div class="project-overlay">
+                                    <a href="https://github.com/123Prince-hub" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3>E-Commerce MERN App</h3>
+                                <p>Full-stack e-commerce platform with payment gateway, inventory management, and real-time order tracking.</p>
+                                <div class="project-tech">
+                                    <span>React</span>
+                                    <span>Node.js</span>
+                                    <span>MongoDB</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="project-card glass-card">
+                            <div class="project-image">
+                                <img src="assets/projects/project3.jpg" alt="Document AI Analyzer">
+                                <div class="project-overlay">
+                                    <a href="https://github.com/123Prince-hub" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3>Document AI Analyzer</h3>
+                                <p>AI-powered document processing system with OCR, text extraction, and intelligent summarization capabilities.</p>
+                                <div class="project-tech">
+                                    <span>Python</span>
+                                    <span>LangChain</span>
+                                    <span>AWS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="project-card glass-card">
+                            <div class="project-image">
+                                <img src="assets/projects/project4.jpg" alt="Task Management System">
+                                <div class="project-overlay">
+                                    <a href="https://github.com/123Prince-hub" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3>Task Management System</h3>
+                                <p>Collaborative project management tool with real-time updates, team collaboration, and analytics dashboard.</p>
+                                <div class="project-tech">
+                                    <span>React</span>
+                                    <span>Express</span>
+                                    <span>Socket.io</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="project-card glass-card">
+                            <div class="project-image">
+                                <img src="assets/projects/project5.jpg" alt="AI Content Generator">
+                                <div class="project-overlay">
+                                    <a href="https://github.com/123Prince-hub" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3>AI Content Generator</h3>
+                                <p>Generative AI tool for creating blog posts, social media content, and marketing copy using advanced LLMs.</p>
+                                <div class="project-tech">
+                                    <span>Python</span>
+                                    <span>GPT-4</span>
+                                    <span>Streamlit</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="project-card glass-card">
+                            <div class="project-image">
+                                <img src="assets/projects/project6.jpg" alt="REST API Backend">
+                                <div class="project-overlay">
+                                    <a href="https://github.com/123Prince-hub" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3>REST API Backend</h3>
+                                <p>Scalable RESTful API with authentication, rate limiting, and comprehensive documentation using Swagger.</p>
+                                <div class="project-tech">
+                                    <span>Node.js</span>
+                                    <span>PostgreSQL</span>
+                                    <span>Docker</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section">
+        <div class="dots-bg" id="dotsBg"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experience & Education</h2>
+                <p class="section-subtitle">My professional journey</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3 class="timeline-heading"><i class="fas fa-briefcase"></i> Experience</h3>
+                    <div class="timeline">
+                        <div class="timeline-item glass-card">
+                            <div class="timeline-date">2022 - Present</div>
+                            <h4>Senior Full Stack Developer</h4>
+                            <p class="company">Tech Solutions Inc.</p>
+                            <p>Leading development of enterprise web applications, mentoring junior developers, and implementing best practices for scalable architecture.</p>
+                        </div>
+                        <div class="timeline-item glass-card">
+                            <div class="timeline-date">2020 - 2022</div>
+                            <h4>Full Stack Developer</h4>
+                            <p class="company">Digital Innovations Ltd.</p>
+                            <p>Developed and maintained multiple client projects, integrated third-party APIs, and optimized application performance.</p>
+                        </div>
+                        <div class="timeline-item glass-card">
+                            <div class="timeline-date">2018 - 2020</div>
+                            <h4>Frontend Developer</h4>
+                            <p class="company">Creative Web Studio</p>
+                            <p>Created responsive user interfaces, collaborated with designers, and implemented modern frontend frameworks.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="timeline-heading"><i class="fas fa-graduation-cap"></i> Education</h3>
+                    <div class="timeline">
+                        <div class="timeline-item glass-card">
+                            <div class="timeline-date">2014 - 2018</div>
+                            <h4>Bachelor of Technology</h4>
+                            <p class="company">Computer Science & Engineering</p>
+                            <p>Graduated with honors. Specialized in software development, algorithms, and database management systems.</p>
+                        </div>
+                        <div class="timeline-item glass-card">
+                            <div class="timeline-date">2023</div>
+                            <h4>AWS Certified Solutions Architect</h4>
+                            <p class="company">Amazon Web Services</p>
+                            <p>Professional certification in cloud architecture and AWS services implementation.</p>
+                        </div>
+                        <div class="timeline-item glass-card">
+                            <div class="timeline-date">2021</div>
+                            <h4>Full Stack Web Development</h4>
+                            <p class="company">Online Certification</p>
+                            <p>Comprehensive bootcamp covering MERN stack, DevOps, and modern development practices.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div id="testimonialsParticles"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Testimonials</h2>
+                <p class="section-subtitle">What clients say about me</p>
+            </div>
+            <div class="swiper testimonialsSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testimonial-card glass-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Prince delivered an exceptional website that exceeded our expectations. His attention to detail and technical expertise is outstanding."</p>
+                            <div class="testimonial-author">
+                                <h5>Mr. Madhur Sharma</h5>
+                                <span>CEO, TechStart</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card glass-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Working with Prince was a pleasure. He's professional, responsive, and delivers high-quality work on time. Highly recommended!"</p>
+                            <div class="testimonial-author">
+                                <h5>Mr. Krishnakant Kumawat</h5>
+                                <span>Founder, Digital Agency</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card glass-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Prince transformed our vision into reality. His coding skills and problem-solving abilities are top-notch. Will definitely work again!"</p>
+                            <div class="testimonial-author">
+                                <h5>Mr. Shubhendra Gupta</h5>
+                                <span>Product Manager, InnovateCo</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card glass-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Excellent developer with great communication skills. Prince understood our requirements perfectly and delivered beyond expectations."</p>
+                            <div class="testimonial-author">
+                                <h5>Mr. Bhupendra Rawat</h5>
+                                <span>CTO, StartupHub</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="wave-bg"></div>
+        <div class="circuit-bg" id="contactCircuitBg"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Let's work together</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="contact-info glass-card">
+                        <h3>Contact Information</h3>
+                        <div class="hire-options">
+                            <div class="hire-card">
+                                <i class="fas fa-briefcase"></i>
+                                <h5>Full-Time Available</h5>
+                                <p>Open to permanent positions</p>
+                            </div>
+                            <div class="hire-card">
+                                <i class="fas fa-laptop-code"></i>
+                                <h5>Freelance Available</h5>
+                                <p>Available for project-based work</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h5>Email</h5>
+                                <p class="email-copy" onclick="copyEmail()" title="Click to copy">
+                                    princekirad11@gmail.com
+                                </p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h5>Phone</h5>
+                                <p>+91 97826 65697</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h5>Location</h5>
+                                <p>Jaipur, India</p>
+                            </div>
+                        </div>
+                        <div class="contact-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <form id="contactForm" class="contact-form glass-card">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loader" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </span>
+                        </button>
+                        <div id="formMessage" class="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Prince. All rights reserved.</p>
+                <p>Designed & Developed with <i class="fas fa-heart"></i> by Prince</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTop" class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
