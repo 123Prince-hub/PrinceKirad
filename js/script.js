@@ -609,19 +609,35 @@ const toolsSwiper = new Swiper('.toolsSwiper', {
     },
 });
 
-// Simple Cursor Effect
+// Simple Cursor Effect (Desktop only)
 const cursorDot = document.querySelector('.cursor-dot');
 
-document.addEventListener('mousemove', (e) => {
-    cursorDot.style.left = e.clientX + 'px';
-    cursorDot.style.top = e.clientY + 'px';
-});
+// Check if device is touch-enabled or mobile
+const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+const isMobile = window.innerWidth <= 1024;
 
-// Expand on hover
-document.querySelectorAll('a, button, .btn').forEach(el => {
-    el.addEventListener('mouseenter', () => cursorDot.classList.add('expand'));
-    el.addEventListener('mouseleave', () => cursorDot.classList.remove('expand'));
-});
+if (!isTouchDevice && !isMobile && cursorDot) {
+    document.addEventListener('mousemove', (e) => {
+        cursorDot.style.left = e.clientX + 'px';
+        cursorDot.style.top = e.clientY + 'px';
+    });
+    
+    // Expand on hover
+    document.querySelectorAll('a, button, .btn').forEach(el => {
+        el.addEventListener('mouseenter', () => cursorDot.classList.add('expand'));
+        el.addEventListener('mouseleave', () => cursorDot.classList.remove('expand'));
+    });
+} else {
+    // Hide cursor on mobile/touch devices
+    if (cursorDot) {
+        cursorDot.style.display = 'none';
+    }
+    // Restore default cursor
+    document.body.style.cursor = 'auto';
+    document.querySelectorAll('*').forEach(el => {
+        el.style.cursor = 'auto';
+    });
+}
 
 // Back to Top Button
 const backToTopBtn = document.getElementById('backToTop');
