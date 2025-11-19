@@ -1728,6 +1728,10 @@ section {
         text-align: center;
     }
     
+    .social-links {
+        justify-content: center;
+    }
+    
     .image-wrapper {
         width: 250px;
         height: 250px;
