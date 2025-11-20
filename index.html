@@ -23,6 +23,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/glitch.css">
     <link rel="stylesheet" href="css/background.css">
+    <link rel="stylesheet" href="css/search.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -52,6 +53,29 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-overlay" id="searchOverlay"></div>
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" id="searchInput"
+                        placeholder="Search skills, projects, services..." autocomplete="off">
+                    <button class="search-close" id="searchClose">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-empty">
+                    <i class="fas fa-search"></i>
+                    <p>Start typing to search...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
@@ -59,16 +83,6 @@
                 <span class="brand-icon">👨‍💻</span>
                 <span class="brand-text">Prince</span>
             </a>
-            <div class="nav-right">
-                <button class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <i class="fas fa-moon" id="themeIcon"></i>
-                </button>
-            </div>
             <div class="nav-menu" id="navMenu">
                 <ul class="navbar-nav">
                     <li class="nav-item nav-profile-item">
@@ -88,6 +102,19 @@
                     <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-envelope"></i> Contact</a>
                     </li>
                 </ul>
+            </div>
+            <div class="nav-right">
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+                <button class="search-btn" id="searchBtn" aria-label="Search">
+                    <i class="fas fa-search"></i>
+                </button>
             </div>
         </div>
     </nav>
@@ -914,6 +941,7 @@
 
     <!-- Custom JS -->
     <script src="js/theme-toggle.js"></script>
+    <script src="js/search.js"></script>
     <script src="js/script.js"></script>
 </body>
 
