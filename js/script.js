@@ -73,46 +73,62 @@ window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         const loader = document.getElementById('loader');
         loader.classList.add('hidden');
-        startTypingAnimation();
     }, 2000);
 });
 
 
-// ===== Typing Animation =====
-function startTypingAnimation() {
-    const heroTitle = document.querySelector('.hero-title');
-    heroTitle.innerHTML = "Hi, I'm <span class='gradient-text'>Prince Kirad</span>";
-    heroTitle.style.opacity = '0';
-    
-    setTimeout(() => {
-        heroTitle.style.opacity = '1';
-        heroTitle.style.animation = 'fadeInUp 1s ease forwards';
-        
-        // Add wave effect after 1 second
-        setTimeout(() => {
-            heroTitle.classList.add('wave-animation');
-            // Start subtitle typing
-            typeSubtitle();
-        }, 1000);
-    }, 100);
-}
+// ===== Text Rotation Animation =====
+var TxtRotate = function (el, toRotate, period) {
+    this.toRotate = toRotate;
+    this.el = el;
+    this.loopNum = 0;
+    this.period = parseInt(period, 10) || 2000;
+    this.txt = '';
+    this.tick();
+    this.isDeleting = false;
+};
 
-// Subtitle Typing Effect
-function typeSubtitle() {
-    const subtitle = document.querySelector('.hero-subtitle');
-    const text = 'Full Stack GenAI Engineer';
-    subtitle.textContent = '';
-    let index = 0;
-    
-    function type() {
-        if (index < text.length) {
-            subtitle.textContent += text.charAt(index);
-            index++;
-            setTimeout(type, 80);
+TxtRotate.prototype.tick = function () {
+    var i = this.loopNum % this.toRotate.length;
+    var fullTxt = this.toRotate[i];
+
+    if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+    } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+    }
+
+    this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+    var that = this;
+    var delta = 300 - Math.random() * 100;
+
+    if (this.isDeleting) { delta /= 2; }
+
+    if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+    } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+    }
+
+    setTimeout(function () {
+        that.tick();
+    }, delta);
+};
+
+window.onload = function () {
+    var elements = document.getElementsByClassName('txt-rotate');
+    for (var i = 0; i < elements.length; i++) {
+        var toRotate = elements[i].getAttribute('data-rotate');
+        var period = elements[i].getAttribute('data-period');
+        if (toRotate) {
+            new TxtRotate(elements[i], JSON.parse(toRotate), period);
         }
     }
-    type();
-}
+};
 
 // ===== Code Rain Animation =====
 const codeRain = document.getElementById('codeRain');
@@ -132,12 +148,12 @@ function createCodeSymbol() {
     symbol.style.left = Math.random() * 100 + '%';
     symbol.style.animationDuration = (Math.random() * 12 + 10) + 's';
     symbol.style.animationDelay = Math.random() * 5 + 's';
-    
+
     const colors = ['#6366f1', '#8b5cf6', '#ec4899'];
     symbol.style.color = colors[Math.floor(Math.random() * colors.length)];
-    
+
     codeRain.appendChild(symbol);
-    
+
     setTimeout(() => symbol.remove(), 22000);
 }
 
@@ -221,11 +237,11 @@ if (document.getElementById('testimonialsParticles')) {
 
 // ===== Circuit Lines (Skills Section) =====
 const circuitBg = document.getElementById('circuitBg');
-for(let i = 0; i < 15; i++) {
+for (let i = 0; i < 15; i++) {
     const line = document.createElement('div');
     line.className = 'circuit-line';
     const isHorizontal = Math.random() > 0.5;
-    if(isHorizontal) {
+    if (isHorizontal) {
         line.style.width = Math.random() * 200 + 100 + 'px';
         line.style.height = '2px';
         line.style.top = Math.random() * 100 + '%';
@@ -243,11 +259,11 @@ for(let i = 0; i < 15; i++) {
 // ===== Circuit Lines (Contact Section) =====
 const contactCircuitBg = document.getElementById('contactCircuitBg');
 if (contactCircuitBg) {
-    for(let i = 0; i < 15; i++) {
+    for (let i = 0; i < 15; i++) {
         const line = document.createElement('div');
         line.className = 'circuit-line';
         const isHorizontal = Math.random() > 0.5;
-        if(isHorizontal) {
+        if (isHorizontal) {
             line.style.width = Math.random() * 200 + 100 + 'px';
             line.style.height = '2px';
             line.style.top = Math.random() * 100 + '%';
@@ -265,7 +281,7 @@ if (contactCircuitBg) {
 
 // ===== Floating Dots (Experience Section) =====
 const dotsBg = document.getElementById('dotsBg');
-for(let i = 0; i < 30; i++) {
+for (let i = 0; i < 30; i++) {
     const dot = document.createElement('div');
     dot.className = 'floating-dot';
     dot.style.left = Math.random() * 100 + '%';
@@ -277,7 +293,7 @@ for(let i = 0; i < 30; i++) {
 
 // ===== Wave Lines (Services Section) =====
 const waveLines = document.getElementById('waveLines');
-for(let i = 0; i < 5; i++) {
+for (let i = 0; i < 5; i++) {
     const line = document.createElement('div');
     line.className = 'wave-line';
     line.style.top = (i * 20 + 10) + '%';
@@ -354,7 +370,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 behavior: 'smooth',
                 block: 'start'
             });
-            
+
             // Close mobile menu if open
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
@@ -394,11 +410,11 @@ const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
 
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
+
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const btnText = submitBtn.querySelector('.btn-text');
     const btnLoader = submitBtn.querySelector('.btn-loader');
-    
+
     // Get form data
     const formData = {
         name: document.getElementById('name').value,
@@ -412,7 +428,7 @@ contactForm.addEventListener('submit', async (e) => {
     btnText.style.display = 'none';
     btnLoader.style.display = 'inline-block';
     submitBtn.disabled = true;
-    
+
     try {
         // Send data to Google Sheets
         const response = await fetch(GOOGLE_SCRIPT_URL, {
@@ -423,19 +439,19 @@ contactForm.addEventListener('submit', async (e) => {
             },
             body: JSON.stringify(formData)
         });
-        
+
         // Show success message
         formMessage.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
         formMessage.className = 'form-message success';
-        
+
         // Reset form
         contactForm.reset();
-        
+
         // Hide message after 5 seconds
         setTimeout(() => {
             formMessage.style.display = 'none';
         }, 5000);
-        
+
     } catch (error) {
         // Show error message
         formMessage.textContent = '✗ Oops! Something went wrong. Please try again.';
@@ -485,7 +501,7 @@ window.addEventListener('scroll', () => {
     const scrolled = window.scrollY;
     const heroContent = document.querySelector('.hero-content');
     const heroImage = document.querySelector('.hero-image');
-    
+
     if (heroContent && heroImage) {
         heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
         heroImage.style.transform = `translateY(${scrolled * 0.2}px)`;
@@ -503,11 +519,11 @@ document.addEventListener('click', (e) => {
 // ===== Add Hover Effect to Project Cards =====
 const projectCards = document.querySelectorAll('.project-card');
 projectCards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
+    card.addEventListener('mouseenter', function () {
         this.style.transform = 'translateY(-15px) scale(1.02)';
     });
-    
-    card.addEventListener('mouseleave', function() {
+
+    card.addEventListener('mouseleave', function () {
         this.style.transform = 'translateY(0) scale(1)';
     });
 });
@@ -621,7 +637,7 @@ if (!isTouchDevice && !isMobile && cursorDot) {
         cursorDot.style.left = e.clientX + 'px';
         cursorDot.style.top = e.clientY + 'px';
     });
-    
+
     // Expand on hover
     document.querySelectorAll('a, button, .btn').forEach(el => {
         el.addEventListener('mouseenter', () => cursorDot.classList.add('expand'));
@@ -661,11 +677,11 @@ backToTopBtn.addEventListener('click', () => {
 function copyEmail() {
     const email = 'princekirad11@gmail.com';
     const emailElement = document.querySelector('.email-copy');
-    
+
     navigator.clipboard.writeText(email).then(() => {
         emailElement.classList.add('copied');
         emailElement.textContent = 'Email Copied! ✓';
-        
+
         setTimeout(() => {
             emailElement.classList.remove('copied');
             emailElement.textContent = email;
@@ -682,17 +698,17 @@ function apply3DTilt() {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
+
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            
+
             const rotateX = (y - centerY) / 10;
             const rotateY = (centerX - x) / 10;
-            
+
             card.style.setProperty('--rotate-x', `${rotateX}deg`);
             card.style.setProperty('--rotate-y', `${rotateY}deg`);
         });
-        
+
         card.addEventListener('mouseleave', () => {
             card.style.setProperty('--rotate-x', '0deg');
             card.style.setProperty('--rotate-y', '0deg');
