@@ -1542,7 +1542,7 @@ section {
 }
 
 .hire-card {
-    background: var(--bg-secondary);
+    background: #10091b;
     padding: 1.2rem;
     border-radius: 10px;
     text-align: center;
