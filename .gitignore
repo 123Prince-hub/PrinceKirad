@@ -16,6 +16,7 @@ venv.bak/
 .idea/
 *.sublime-workspace
 *.swp
+.agent
 
 # Operating System specific files
 .DS_Store
